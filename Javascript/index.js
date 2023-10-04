@@ -108,17 +108,19 @@
 //    document.writeln(aashish + "br");
 //  }
 //  );
-const avash = ["Aashish", "Prabin", "Abiral", "Bibek", "Mukesh", "Shiv"];
-avash.forEach((aashish, index) => {
-  document.writeln(aashish + "<br>");
-});
-
- 
-
-
-
-
-
-
-
-
+//forEach loop Array Method
+// const avash = ["Aashish", "Prabin", "Abiral", "Bibek", "Mukesh", "Shiv"];
+// avash.forEach((aashish, index) => {
+//   document.writeln(aashish + "<br>");
+// });
+// Map method 
+const array = [2,1,3,4,11,31,6];
+const even =array.filter((value)=>(value%2 ==0)
+).map((value)=>value*2);
+document.writeln("Output="+even+"<br>");
+console.log("Output=",even);
+const sum =even.reduce((n1,n2)=>{
+return(n1+n2);
+})
+document.write("The sum of the number is"+sum);
+console.log("The sum of the no. is ",sum);
