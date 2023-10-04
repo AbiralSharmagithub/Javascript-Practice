@@ -103,6 +103,16 @@
 // useclearInterval/clearTimeout to cancel setTimeout/setInterval
  // Javascript local storage
  //JSON
+//  const avash = ["Aashish","Prabin","Abiral","Bibek","Mukesh","Shiv"];
+//  avash.forEach((aashish,index)=>{
+//    document.writeln(aashish + "br");
+//  }
+//  );
+const avash = ["Aashish", "Prabin", "Abiral", "Bibek", "Mukesh", "Shiv"];
+avash.forEach((aashish, index) => {
+  document.writeln(aashish + "<br>");
+});
+
  
 
 
