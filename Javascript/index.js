@@ -114,13 +114,41 @@
 //   document.writeln(aashish + "<br>");
 // });
 // Map method 
-const array = [2,1,3,4,11,31,6];
-const even =array.filter((value)=>(value%2 ==0)
-).map((value)=>value*2);
-document.writeln("Output="+even+"<br>");
-console.log("Output=",even);
-const sum =even.reduce((n1,n2)=>{
-return(n1+n2);
+// const array = [2,1,3,4,11,31,6];
+// const even =array.filter((value)=>{
+//     return(value%2 ==0);
+// }
+// ).map((value)=>{
+//     return (value*2);});
+// document.writeln("Output="+even+"<br>");
+// console.log("Output=",even);
+// const sum =even.reduce((n1,n2)=>{
+// return(n1+n2);
+// })
+// document.write("The sum of the number is"+sum);
+// console.log("The sum of the no. is ",sum);
+
+//Sorting
+// const num= [50,10,100,150,60,70,80];
+// num.sort(); 
+// console.log(num);
+// num.sort((a,b)=>{
+//     return(b-a);
+// } )
+// console.log(num);
+const total =[30,40,10,100,70,80,50,20,45,65,25,79,35,78,12,58];
+const num = total.sort((a,b)=>{
+    return (a-b);
 })
-document.write("The sum of the number is"+sum);
-console.log("The sum of the no. is ",sum);
+const first= num[0];
+const last=num[num.length-1];
+const middle=num[num.length-1]/2;
+const average=(first+last)/middle;
+console.log(first);
+console.log(last);
+console.log(middle);
+document.write(average);
+console.log(average);
+
+
+
