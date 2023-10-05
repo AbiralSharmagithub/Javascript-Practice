@@ -136,19 +136,24 @@
 //     return(b-a);
 // } )
 // console.log(num);
-const total =[30,40,10,100,70,80,50,20,45,65,25,79,35,78,12,58];
-const num = total.sort((a,b)=>{
-    return (a-b);
-})
-const first= num[0];
-const last=num[num.length-1];
-const middle=num[num.length-1]/2;
-const average=(first+last)/middle;
-console.log(first);
-console.log(last);
-console.log(middle);
-document.write(average);
-console.log(average);
+//   const total =[30,30,10,100,70,80,50,20,45,65,25,79,35,78,12,58];
+//   const num = total.sort((a,b)=>{
+//       return (a-b);
+//   })
+//   console.log("This total length",total.length);
+//   console.log("This num length",num.length);
+//  console.log(num);
+//  const first= num[0];
+//  const last=num[num.length-1];
+//  const middle=num[num.length-1]/2;
+//  const average=(first+last)/middle;
+//  console.log(first);
+//  console.log("This last length",last);
+//  console.log(middle);
+//  document.write(average);
+//  console.log(average);
+// lifo and fifo sorting
+
 
 
 
