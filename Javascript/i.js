@@ -7,3 +7,7 @@
 // kalu.setAttribute("class","hello baby");//It sets the attribute in existence elements
 // kalu.removeAttribute("class");//It removes the class
 // kalu.removeAttribute("id");//It removes the id
+// console.log(first.dataset);
+// console.log(first.dataset.game);
+// console.log(first.dataset.player);
+
