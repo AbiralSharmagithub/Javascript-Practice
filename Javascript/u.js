@@ -66,29 +66,29 @@
 // })
 
 //Promise API methods
-let p1=new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve("value1");
-    },5000);
-});
-let p2=new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        resolve("value2");
-       // reject(new Error("It is rejected"));
-    },3000);
-});
-let p3=new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-       // resolve("value3");
-       reject("value 3 is rejected");
-    },2000);
-});
-// let promise_all=Promise.all([p1,p2,p3]);
-// let promise_allSettled=Promise.allSettled([p1,p2,p3]);
-// let promise_race=Promise.race([p1,p2,p3]);
-// let promise_any=Promise.any([p1,p2,p3]);
-let promise_all =Promise.resolve(6);
- promise_all =Promise.reject(new Error("hey"));
-promise_all.then((value)=>{
-    console.log(value);
-})
+// let p1=new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve("value1");
+//     },5000);
+// });
+// let p2=new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         resolve("value2");
+//        // reject(new Error("It is rejected"));
+//     },3000);
+// });
+// let p3=new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//        // resolve("value3");
+//        reject("value 3 is rejected");
+//     },2000);
+// });
+// // let promise_all=Promise.all([p1,p2,p3]);
+// // let promise_allSettled=Promise.allSettled([p1,p2,p3]);
+// // let promise_race=Promise.race([p1,p2,p3]);
+// // let promise_any=Promise.any([p1,p2,p3]);
+// let promise_all =Promise.resolve(6);
+//  promise_all =Promise.reject(new Error("hey"));
+// promise_all.then((value)=>{
+//     console.log(value);
+// })
