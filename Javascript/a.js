@@ -1,10 +1,12 @@
-//map function
- //map function is applied in a function in each element of an array and returns a new array containing a result
- //It is used for transforming each elements of an array
-//  const a= [1,2,4,5,8,9];
-//  const aashish=a.map((avash) => {
-//     return avash*2;
-//  }
-//  )
-//  console.log(a);
-// console.log(aashish);
+function pickComputermove() {
+  const randomNumber = Math.random();
+  let computerMove = "";
+  if (randomNumber >= 0 && randomNumber < 1 / 3) {
+    computerMove = "rock";
+  } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+    computerMove = "paper";
+  } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+    computerMove = "sicssor";
+  }
+  return computerMove;
+}
