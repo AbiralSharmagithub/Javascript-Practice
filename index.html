@@ -1,13 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript-Learning</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-<script src="Javascript/closures.js"></script>
-</body>
+    <link rel="icon" href="images.png" type="images/png" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <section id="game-play">
+      <p>Rock Paper Sicssor</p>
+      <p>
+        <button
+          id="rock"
+          onclick="
+          {const computerMove = pickComputermove();
+          console.log(pickComputermove());
+          let result = '';
+         if (computerMove === 'rock')
+         {
+          result = 'Tie';
+         }
+         else if (computerMove === 'paper')
+         {
+         result = 'lose';
+         }
+         else if (computerMove === 'sicssor')
+         {
+          result = 'win';
+         }
+         else
+         {
+         alert('You picked a wrong choice');
+         }
+         alert(`You picked rock. Computer picked ${computerMove}.You ${result}`);
+        }"
+        >
+          Rock
+        </button>
+        <button
+          id="paper"
+          onclick="
+         { const computerMove = pickComputermove();
+         let consequence = '';
+         if (computerMove === 'paper')
+         {
+          consequence = 'Tie';
+         }
+         else if (computerMove === 'rock')
+         {
+          consequence = 'win';
+         }
+         else if (computerMove === 'sicssor')
+         {
+          consequence = 'lose';
+         }
+         else 
+         {
+          alert('You picked a wrong choice');
+         }
+         alert(`You picked paper. Computer picked ${computerMove}.You ${consequence}`);  
+        
+        }"
+        >
+          Paper
+        </button>
+        <button
+          id="sicssor"
+          onclick="
+          { const computerMove = pickComputermove();
+         let conclusion = '';
+         if (computerMove === 'sicssor')
+         {
+          conclusion = 'Tie';
+         }
+         else if (computerMove === 'rock')
+         {
+          conclusion = 'lose';
+         }
+         else if (computerMove === 'paper')
+         {
+          conclusion = 'win';
+         }
+         else 
+         {
+          alert('You picked a wrong choice');
+         }
+         alert(`You picked paper. Computer picked ${computerMove}.You ${conclusion}`);
+        }"
+        >
+          Sicssor
+        </button>
+      </p>
+    </section>
+    <script src="Javascript/a.js"></script>
+  </body>
 </html>

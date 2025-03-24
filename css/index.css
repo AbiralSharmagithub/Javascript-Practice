@@ -1,17 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-.blue {
-    background-color: blue;
-}
-.red {
-    background-color: aqua;
-}
-.text {
-    color:green;
-}
-.rame {
-    background-color: black;
+.cart {
+  display: flex;
+  flex-direction: column;
 }
