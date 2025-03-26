@@ -13,84 +13,60 @@
       <p>
         <button
           id="rock"
-          onclick="
-          {const computerMove = pickComputermove();
-          console.log(pickComputermove());
-          let result = '';
-         if (computerMove === 'rock')
-         {
-          result = 'Tie';
-         }
-         else if (computerMove === 'paper')
-         {
-         result = 'lose';
-         }
-         else if (computerMove === 'sicssor')
-         {
-          result = 'win';
-         }
-         else
-         {
-         alert('You picked a wrong choice');
-         }
-         alert(`You picked rock. Computer picked ${computerMove}.You ${result}`);
-        }"
+          onclick="playerGame('rock');
+          //{const computerMove = pickComputermove();
+        //   let result = '';
+        //  if (computerMove === 'rock')
+        //  {
+        //   result = 'Tied';
+        //  }
+        //  else if (computerMove === 'paper')
+        //  {
+        //  result = 'lost';
+        //  }
+        //  else if (computerMove === 'sicssor')
+        //  {
+        //   result = 'won';
+        //  }
+        //  else
+        //  {
+        //  alert('You picked a wrong choice');
+        //  }
+        //  alert(`You picked rock. Computer picked ${computerMove}.You ${result}`);
+        // }
+        "
         >
           Rock
         </button>
         <button
           id="paper"
-          onclick="
-         { const computerMove = pickComputermove();
-         let consequence = '';
-         if (computerMove === 'paper')
-         {
-          consequence = 'Tie';
-         }
-         else if (computerMove === 'rock')
-         {
-          consequence = 'win';
-         }
-         else if (computerMove === 'sicssor')
-         {
-          consequence = 'lose';
-         }
-         else 
-         {
-          alert('You picked a wrong choice');
-         }
-         alert(`You picked paper. Computer picked ${computerMove}.You ${consequence}`);  
+          onclick="playerGame('paper');
+        //  { const computerMove = pickComputermove();
+        //  let consequence = '';
+        //  if (computerMove === 'paper')
+        //  {
+        //   consequence = 'Tied';
+        //  }
+        //  else if (computerMove === 'rock')
+        //  {
+        //   consequence = 'won';
+        //  }
+        //  else if (computerMove === 'sicssor')
+        //  {
+        //   consequence = 'lost';
+        //  }
+        //  else 
+        //  {
+        //   alert('You picked a wrong choice');
+        //  }
+        //  alert(`You picked paper. Computer picked ${computerMove}.You ${consequence}`);  
         
-        }"
+         //}
+          "
         >
           Paper
         </button>
-        <button
-          id="sicssor"
-          onclick="
-          { const computerMove = pickComputermove();
-         let conclusion = '';
-         if (computerMove === 'sicssor')
-         {
-          conclusion = 'Tie';
-         }
-         else if (computerMove === 'rock')
-         {
-          conclusion = 'lose';
-         }
-         else if (computerMove === 'paper')
-         {
-          conclusion = 'win';
-         }
-         else 
-         {
-          alert('You picked a wrong choice');
-         }
-         alert(`You picked paper. Computer picked ${computerMove}.You ${conclusion}`);
-        }"
-        >
-          Sicssor
-        </button>
+        <button id="sicssor" onclick="playerGame('Sicssor');">Sicssor</button>
       </p>
     </section>
     <script src="Javascript/a.js"></script>
