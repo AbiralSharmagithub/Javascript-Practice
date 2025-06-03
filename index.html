@@ -9,11 +9,11 @@
   </head>
   <body>
     <section id="game-play">
-      <p>Rock Paper Sicssor</p>
+      <p>Rock Paper Scissor</p>
       <p>
         <button
           id="rock"
-          onclick="playerGame('rock');
+          onclick="playGame('rock');"
           //{const computerMove = pickComputermove();
         //   let result = '';
         //  if (computerMove === 'rock')
@@ -24,7 +24,7 @@
         //  {
         //  result = 'lost';
         //  }
-        //  else if (computerMove === 'sicssor')
+        //  else if (computerMove === 'scissor')
         //  {
         //   result = 'won';
         //  }
@@ -40,7 +40,7 @@
         </button>
         <button
           id="paper"
-          onclick="playerGame('paper');
+          onclick="playGame('paper');"
         //  { const computerMove = pickComputermove();
         //  let consequence = '';
         //  if (computerMove === 'paper')
@@ -51,7 +51,7 @@
         //  {
         //   consequence = 'won';
         //  }
-        //  else if (computerMove === 'sicssor')
+        //  else if (computerMove === 'scissor')
         //  {
         //   consequence = 'lost';
         //  }
@@ -66,7 +66,14 @@
         >
           Paper
         </button>
-        <button id="sicssor" onclick="playerGame('Sicssor');">Sicssor</button>
+        <button id="scissor" onclick="playGame('scissor');">
+          Scissor
+        </button>
+        <button id="Reset" onclick="
+        score.wins = 0;
+        score.loses = 0;
+        score.ties = 0;
+        ">Reset Score</button>
       </p>
     </section>
     <script src="Javascript/a.js"></script>
