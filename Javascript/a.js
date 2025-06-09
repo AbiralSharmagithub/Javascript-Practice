@@ -113,12 +113,12 @@ console.log(typeof obj); */
 //   },
 // };
 // product5["fun"]();
-console.log(typeof console); /*This displays object */
-console.log(typeof log); /*This displays function */
+//console.log(typeof console); /*This displays object */
+//console.log(typeof log); /*This displays function */
 /* Built in object */
 // JSON
 
-const product4 = {
+/*const product4 = {
   sale: 40,
   "Books-name": "Harry Potter",
   rating: {
@@ -131,4 +131,54 @@ const product4 = {
 };
 console.log(JSON.stringify(product4)); //It converts javascript object into JSON object.
 const jsonstring = JSON.stringify(product4);
-console.log(JSON.parse(jsonstring)); //It converts Json object into Javascript object.
+console.log(JSON.parse(jsonstring)); //It converts Json object into Javascript object.*/
+// Auto-boxing
+console.log("hellokkk".length);
+console.log("hello".toUpperCase());
+console.log("HELLO".toLowerCase());
+// Objects are reference
+const object1 = {
+  message: "Hello guys",
+};
+const object3 = {
+  message: "Hello guys",
+};
+console.log(object1 === object3); //It is because object1 and object3 have different references.
+console.log(object1);
+const object2 = object1;
+object1.message = "Bye Guys";
+console.log(object1);
+console.log(object2 === object1); //It is because object2 and object1 have same references.
+//shortcuts for object
+const object4 = {
+  message: "Hello Boss",
+};
+// const message = object4.message;
+const { message } = object4;
+console.log(message);
+//It is used for multiple properties
+const object5 = {
+  price: 40,
+  cash: 30,
+  discount: 10,
+};
+const { price, cash, discount } = object5;
+console.log(object5);
+console.log(price);
+console.log(cash);
+console.log(discount);
+//shorthand property
+const object6 = {
+  price,
+  cash,
+  discount,
+};
+console.log(object6);
+//The above object6 displays same property as object5 have.
+//Shorthand method
+const object7 = {
+  method() {
+    console.log("method");
+  },
+};
+object7.method();
