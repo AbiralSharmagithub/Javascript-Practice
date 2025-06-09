@@ -1,8 +1,24 @@
-let score = {
+let score = JSON.parse(localStorage.getItem("score")) || {
   wins: 0,
   loses: 0,
   ties: 0,
 };
+/* if (!score) {
+   score = {
+     wins: 0,
+     loses: 0,
+     ties: 0,
+   };
+} 
+*/
+/* if(score === null) {
+   score = {
+     wins: 0,
+     loses: 0,
+     ties: 0,
+    };
+}
+*/
 function pickComputermove() {
   const randomNumber = Math.random();
   let computerMove = "";
@@ -27,7 +43,7 @@ function playGame(playerMove) {
     } else if (
       (playerMove === "rock" && computerMove === "scissor") ||
       (playerMove === "paper" && computerMove === "rock") ||
-      (computerMove === "scissor" && computerMove === "paper")
+      (playerMove === "scissor" && computerMove === "paper")
     ) {
       conclusion = "won";
       score.wins += 1;
@@ -35,18 +51,21 @@ function playGame(playerMove) {
       conclusion = "lost";
       score.loses += 1;
     }
+    // local storage
+    localStorage.setItem("score", JSON.stringify(score));
     alert(
       `You picked ${playerMove}. Computer picked ${computerMove}.You ${conclusion}
       wins:${score.wins}, loses:${score.loses}, ties:${score.ties}`
     );
   }
 }
+
 // object learning
 /*const obj = {
   name: "kalu",
   price: 500,
 };
-console.log(obj);
+console.log(obj); 
 const identity = obj.name;
 const value = obj.price;
 console.log(identity);
@@ -113,4 +132,3 @@ const product4 = {
 console.log(JSON.stringify(product4)); //It converts javascript object into JSON object.
 const jsonstring = JSON.stringify(product4);
 console.log(JSON.parse(jsonstring)); //It converts Json object into Javascript object.
-// local storage
