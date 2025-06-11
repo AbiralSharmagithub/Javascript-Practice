@@ -19,6 +19,9 @@ let score = JSON.parse(localStorage.getItem("score")) || {
     };
 }
 */
+//window object.
+window.console.log("Window");
+updateScoreElement();
 function pickComputermove() {
   const randomNumber = Math.random();
   let computerMove = "";
@@ -45,21 +48,61 @@ function playGame(playerMove) {
       (playerMove === "paper" && computerMove === "rock") ||
       (playerMove === "scissor" && computerMove === "paper")
     ) {
-      conclusion = "won";
+      conclusion = "You won";
       score.wins += 1;
     } else {
-      conclusion = "lost";
+      conclusion = " You lost";
       score.loses += 1;
     }
+    updateScoreElement();
+    document.querySelector(".js-result").innerHTML = conclusion;
+    document.querySelector(
+      ".js-moves"
+    ).innerHTML = `You ${playerMove}-${computerMove} computer`;
     // local storage
     localStorage.setItem("score", JSON.stringify(score));
-    alert(
+    /*alert(
       `You picked ${playerMove}. Computer picked ${computerMove}.You ${conclusion}
       wins:${score.wins}, loses:${score.loses}, ties:${score.ties}`
     );
+    */
   }
 }
-
+function resetElement() {
+  score.wins = 0;
+  score.loses = 0;
+  score.ties = 0;
+  localStorage.removeItem("score");
+  updateScoreElement();
+  document.querySelector(".js-result").innerHTML = "";
+  document.querySelector(".js-moves").innerHTML = "";
+}
+function updateScoreElement() {
+  document.querySelector(
+    ".js-score"
+  ).innerHTML = `wins:${score.wins}, loses:${score.loses}, ties:${score.ties}`;
+}
+document.querySelector(
+  ".js-shipping"
+).innerHTML = `Orders under $${40} = +$${10} shipping.`;
+document.querySelector(
+  ".js-free-shipping"
+).innerHTML = `Orders over $${40} = Free shipping.`;
+function totalCost() {
+  let inputData = document.querySelector("input").value;
+  if (inputData < 40) {
+    document.querySelector(".total-cost").innerHTML = `$${
+      Number(inputData) + 10
+    }`;
+  } else {
+    document.querySelector(".total-cost").innerHTML = `$${Number(inputData)}`;
+  }
+}
+function handleCost(event) {
+  if (event.key === "Enter") {
+    totalCost();
+  }
+}
 // object learning
 /*const obj = {
   name: "kalu",
@@ -132,53 +175,40 @@ console.log(typeof obj); */
 console.log(JSON.stringify(product4)); //It converts javascript object into JSON object.
 const jsonstring = JSON.stringify(product4);
 console.log(JSON.parse(jsonstring)); //It converts Json object into Javascript object.*/
-// Auto-boxing
-console.log("hellokkk".length);
-console.log("hello".toUpperCase());
-console.log("HELLO".toLowerCase());
-// Objects are reference
-const object1 = {
-  message: "Hello guys",
-};
-const object3 = {
-  message: "Hello guys",
-};
-console.log(object1 === object3); //It is because object1 and object3 have different references.
-console.log(object1);
-const object2 = object1;
-object1.message = "Bye Guys";
-console.log(object1);
-console.log(object2 === object1); //It is because object2 and object1 have same references.
-//shortcuts for object
-const object4 = {
-  message: "Hello Boss",
-};
-// const message = object4.message;
-const { message } = object4;
-console.log(message);
-//It is used for multiple properties
-const object5 = {
-  price: 40,
-  cash: 30,
-  discount: 10,
-};
-const { price, cash, discount } = object5;
-console.log(object5);
-console.log(price);
-console.log(cash);
-console.log(discount);
-//shorthand property
-const object6 = {
-  price,
-  cash,
-  discount,
-};
-console.log(object6);
-//The above object6 displays same property as object5 have.
-//Shorthand method
-const object7 = {
-  method() {
-    console.log("method");
-  },
-};
-object7.method();
+//Document Object Model
+/*
+document.body.innerHTML = "Hello";
+document.title = "Good job!";
+*/
+/* console.log(document.body.innerHTML);
+document.body.innerHTML = " <button>Please Click here.</button>";
+*/
+/*console.log(document.querySelector("button"));
+console.log(document.querySelector("button").innerHTML);
+document.querySelector("button").innerHTML = "Text outside the button element";
+console.log(document.querySelector("button").innerHTML);
+document.querySelector("button").innerHTML = "Changed";
+console.log(document.querySelector(".js-button"));
+console.log(document.querySelector(".js-button").innerHTML);*/
+const buttonElement = document.querySelector(".js-subscribe-button");
+// console.log(buttonElement);
+function subscribe() {
+  if (buttonElement.innerText === "Subscribe") {
+    buttonElement.innerHTML = "Changed";
+  } else {
+    buttonElement.innerHTML = "Subscribe";
+  }
+}
+//we can convert string into no. and no. into string into number
+// for string to number
+let set = "7";
+console.log(typeof set);
+set = Number(set);
+console.log(typeof set);
+//for number to string
+let get = 7;
+console.log(typeof get);
+get = String(7);
+console.log(typeof get);
+console.log("25" - 5); //In subtraction it converts string into number.
+console.log("25" + 5); //In addition it converts number into string.

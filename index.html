@@ -8,75 +8,37 @@
     <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
+    <!-- <button>Text inside the button element</button>
+    <button class="js-button">Second Button</button> -->
+    <p>Youtube Subscribe Button</p>
+    <button onclick="subscribe();" class="js-subscribe-button">
+      Subscribe
+    </button>
     <section id="game-play">
       <p>Rock Paper Scissor</p>
       <p>
+        <button id="rock" onclick="playGame('rock');">Rock</button>
+        <button id="paper" onclick="playGame('paper');">Paper</button>
+        <button id="scissor" onclick="playGame('scissor');">Scissor</button>
+        <p class="js-result"></p>
+        <p class="js-moves"></p>
+        <p class="js-score"></p>
         <button
-          id="rock"
-          onclick="playGame('rock');"
-          //{const computerMove = pickComputermove();
-        //   let result = '';
-        //  if (computerMove === 'rock')
-        //  {
-        //   result = 'Tied';
-        //  }
-        //  else if (computerMove === 'paper')
-        //  {
-        //  result = 'lost';
-        //  }
-        //  else if (computerMove === 'scissor')
-        //  {
-        //   result = 'won';
-        //  }
-        //  else
-        //  {
-        //  alert('You picked a wrong choice');
-        //  }
-        //  alert(`You picked rock. Computer picked ${computerMove}.You ${result}`);
-        // }
-        "
+          id="Reset"
+          onclick="resetElement();"
         >
-          Rock
+          Reset Score
         </button>
-        <button
-          id="paper"
-          onclick="playGame('paper');"
-        //  { const computerMove = pickComputermove();
-        //  let consequence = '';
-        //  if (computerMove === 'paper')
-        //  {
-        //   consequence = 'Tied';
-        //  }
-        //  else if (computerMove === 'rock')
-        //  {
-        //   consequence = 'won';
-        //  }
-        //  else if (computerMove === 'scissor')
-        //  {
-        //   consequence = 'lost';
-        //  }
-        //  else 
-        //  {
-        //   alert('You picked a wrong choice');
-        //  }
-        //  alert(`You picked paper. Computer picked ${computerMove}.You ${consequence}`);  
-        
-         //}
-          "
-        >
-          Paper
-        </button>
-        <button id="scissor" onclick="playGame('scissor');">
-          Scissor
-        </button>
-        <button id="Reset" onclick="
-        score.wins = 0;
-        score.loses = 0;
-        score.ties = 0;
-        localStorage.removeItem('score');
-        ">Reset Score</button>
       </p>
     </section>
-    <script src="Javascript/a.js"></script>
+    <p>Amazon Order Shipping Calculator.</p>
+    <p class="js-shipping"></p>
+    <p class="js-free-shipping"></p>
+    <input  placeholder="cost of order" onkeydown="
+     handleCost(event);
+    ">
+    <button onclick="totalCost();">Calculate</button>
+    <p class="total-cost"></p>
+    <script src="Javascript/a.js" />
   </body>
 </html>
