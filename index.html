@@ -10,11 +10,19 @@
   <body>
     <!-- <button>Text inside the button element</button>
     <button class="js-button">Second Button</button> -->
-    <p>Youtube Subscribe Button</p>
+    <p class="first-line">Youtube Subscribe Button</p>
     <button onclick="subscribe();" class="js-subscribe-button">
       Subscribe
     </button>
-    <section id="game-play">
+        <p class="order">Amazon Order Shipping Calculator.</p>
+    <p class="js-shipping"></p>
+    <p class="js-free-shipping"></p>
+    <input  placeholder="cost of order" class="input-item" onkeydown="
+     handleCost(event);
+    ">
+    <button onclick="totalCost();" class="calculate">Calculate</button>
+    <p class="total-cost"></p>
+     <section id="game-play">
       <p>Rock Paper Scissor</p>
       <p>
         <button id="rock" onclick="playGame('rock');">Rock</button>
@@ -31,14 +39,7 @@
         </button>
       </p>
     </section>
-    <p>Amazon Order Shipping Calculator.</p>
-    <p class="js-shipping"></p>
-    <p class="js-free-shipping"></p>
-    <input  placeholder="cost of order" onkeydown="
-     handleCost(event);
-    ">
-    <button onclick="totalCost();">Calculate</button>
-    <p class="total-cost"></p>
+
     <script src="Javascript/a.js" />
   </body>
 </html>
