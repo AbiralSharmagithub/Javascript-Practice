@@ -12,7 +12,7 @@ function pickComputermove() {
   } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
     computerMove = "paper";
   } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
-    computerMove = "scissor";
+    computerMove = "scissors";
   } else {
     alert("Select available no.");
   }
@@ -26,9 +26,9 @@ function playGame(playerMove) {
       conclusion = "Tied";
       score.ties += 1;
     } else if (
-      (playerMove === "rock" && computerMove === "scissor") ||
+      (playerMove === "rock" && computerMove === "scissors") ||
       (playerMove === "paper" && computerMove === "rock") ||
-      (playerMove === "scissor" && computerMove === "paper")
+      (playerMove === "scissors" && computerMove === "paper")
     ) {
       conclusion = "You won";
       score.wins += 1;
@@ -40,9 +40,9 @@ function playGame(playerMove) {
     document.querySelector(".js-result").innerHTML = conclusion;
     document.querySelector(
       ".js-moves"
-    ).innerHTML = `You ${playerMove}-${computerMove} computer`;
+    ).innerHTML = `You <img src="images/${playerMove}-emoji.png" class="move-icon"> <img src="images/${computerMove}-emoji.png" class="move-icon"> Computer `;
     // local storage
-    localStorage.setItem("score", JSON.stringify(score));
+     localStorage.setItem("score", JSON.stringify(score));
   }
 }
 function resetElement() {
@@ -59,33 +59,35 @@ function updateScoreElement() {
     ".js-score"
   ).innerHTML = `wins:${score.wins}, loses:${score.loses}, ties:${score.ties}`;
 }
-document.querySelector(
-  ".js-shipping"
-).innerHTML = `Orders under $${40} = +$${10} shipping.`;
-document.querySelector(
-  ".js-free-shipping"
-).innerHTML = `Orders over $${40} = Free shipping.`;
-function totalCost() {
-  let inputData = document.querySelector("input").value;
-  if (inputData < 40) {
-    document.querySelector(".total-cost").innerHTML = `$${
-      Number(inputData) + 10
-    }`;
-  } else {
-    document.querySelector(".total-cost").innerHTML = `$${Number(inputData)}`;
-  }
-}
-function handleCost(event) {
-  if (event.key === "Enter") {
-    totalCost();
-  }
-}
-const buttonElement = document.querySelector(".js-subscribe-button");
-// console.log(buttonElement);
-function subscribe() {
-  if (buttonElement.innerText === "Subscribe") {
-    buttonElement.innerHTML = "Changed";
-  } else {
-    buttonElement.innerHTML = "Subscribe";
-  }
-}
+// document.querySelector(
+//   ".js-shipping"
+// ).innerHTML = `Orders under $${40} = +$${10} shipping.`;
+// document.querySelector(
+//   ".js-free-shipping"
+// ).innerHTML = `Orders over $${40} = Free shipping.`;
+// function totalCost() {
+//   let inputData = document.querySelector("input").value;
+//   if (inputData < 40) {
+//     document.querySelector(".total-cost").innerHTML = `$${
+//       Number(inputData) + 10
+//     }`;
+//   } else {
+//     document.querySelector(".total-cost").innerHTML = `$${Number(inputData)}`;
+//   }
+// }
+// function handleCost(event) {
+//   if (event.key === "Enter") {
+//     totalCost();
+//   }
+// }
+// const buttonElement = document.querySelector(".js-subscribe-button");
+// // console.log(buttonElement);
+// function subscribe() {
+//   if (buttonElement.innerText === "Subscribe") {
+//     buttonElement.innerHTML = "Changed";
+//     buttonElement.classList.add("is-Changed");
+//   } else {
+//     buttonElement.innerHTML = "Subscribe";
+//     buttonElement.classList.remove("is-Changed");
+//   }
+// }
