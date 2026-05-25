@@ -1,197 +1,257 @@
-/*const todoList = [];
-function addtodo() {
-  const inputElement = document.querySelector(".js-name-input");
-  const name = inputElement.value;
-  todoList.push(name);
-  console.log(todoList);
-  inputElement.value = "";
-}*/
-/* let i = 1;
-while (i <= 10) {
-  console.log(i);
-  i++;
-}
-for(let j=1;j<=5;j++)
-{
-    console.log(j);
-}
- let k= 5;
- do {
-     console.log(k);
-     k++;
+//learn advance object
+/* const obj = {
+  firstName:"Raja",
+  lastName:"Mouli"
  }
- while (k<=10); */
-/* const todoList = ["make dinner", "wash dishes", "watch youtube"];
-for (i = 0; i <todoList.length ; i++) {
-  let value = todoList[i];
-  console.log(value);
-} */
-/*const num = [1, 5, 3];
-let total = 0;
-for (i = 0; i < num.length; i++) {
-  //total = total + num[i];
-  const nums= num[i];
-  total =total+nums;
-}
-console.log(total);
+ const sub =  Object.create(obj);
+ console.log(sub.firstName);
+ console.log(sub.lastName);
+ // javascript object from entries
+ const fruits = [["apples",300],["mango",400],["strawberry",800],["banana",1000]];
+ let fruit = Object.fromEntries(fruits);
+ console.log(fruit);
+ //object.assign method
+ const person1 = {
+  firstName: "Kalika",
+  lastName: "Chalika",
+  Age: 50
+ };
+ const person2 = {
+  firstName: "Talika",
+  lastName: "Halika",
+ };
+ Object.assign(person1,person2);
+ console.log(person1.firstName,person1.lastName,person1.Age);
 */
-/* const numb = [10,20,30,25,35];
-const doubleNumb=[];
-for(i=0;i<numb.length;i++)
-{
-  let value=numb[i];  
-  doubleNumb.push(value*2);
-}
-console.log(doubleNumb);
-*/
-/*const todoList = [];
-function renderTodo(){
-let todolistHtml = "";
-todoList.forEach(function (todo, i) {
-  const html = `<div>${todo.name}</div> 
-    <div>${todo.dueDate}</div>
-    <button class=
-    "delete-todo" 
-    onclick = "{todoList.splice(${i},1);
-    renderTodo();
-    }">Delete</button>`;
-  todolistHtml = todolistHtml + html;
-  console.log(todolistHtml);
-});
-document.querySelector(".js-todo-list").innerHTML = todolistHtml;
-}
-function renderTodo() {
-  let todolistHtml = "";
-  for (let i = 0; i < todoList.length; i++) {
-    const todo = todoList[i];
-    const html = `<div>${todo.name}</div> 
-    <div>${todo.dueDate}</div>
-    <button class=
-    "delete-todo" 
-    onclick = "{todoList.splice(${i},1);
-    renderTodo();
-    }">Delete</button>`;
-    todolistHtml = todolistHtml + html;
-    console.log(todolistHtml);
+// this as a object
+/*const person1 = {
+  firstName:"Aashish",
+  lastName:"Karki",
+  fullName:function() {
+    return " Hello " + this.firstName + this.lastName;  
   }
-  document.querySelector(".js-todo-list").innerHTML = todolistHtml;
+ }
+let text = person1.fullName();
+document.getElementById("yourPage").innerHTML = text;
+const person2 = {
+  firstName:"Aashish",
+  lastName:"Karki",
+  fullName:function() {
+    return this;  
+  }
+ }
+ document.getElementById("myPage").innerHTML = person2.fullName();
+ // function borrowing with bind method
+ const person =  {
+  firstName: "Raja",
+  lastName: "Mauli",
+  fullName:function(){
+    console.log("My name is"+this.firstName+" "+this.lastName);
+  }
+ }
+ const member = {
+  firstName: "Raghu",
+  lastName: "Chalise"
+ }
+ let fullName = person.fullName.bind(member);
+ document.getElementById("myPage").innerHTML = fullName();
+*/
+//object iteration
+//javascript object method
+// 1. object assign
+//source object
+/*const person1 ={
+  firstName: "Shani",
+  lastName: "Nani",
+  Address: "Khandala",
+  Age: 36
 }
-function addtodo() {
-  const inputElement = document.querySelector(".js-name-input");
-  const name = inputElement.value;
-  const dateInputelement = document.querySelector(".add-date");
-  const dueDate = dateInputelement.value;
-  //todoList.push({ name: name, dueDate: dueDate }); if the propety and variable names are same then we can do it in following ways.
-  todoList.push({ name, dueDate }); //This is called shorthand poperty syntax.
-  renderTodo();
-  inputElement.value = "";
-}*/
-/*function greeting ()
+//target object
+const person2 = {
+  firstName: "Aakash",
+  lastName: "Shrestha"
+}
+let text = Object.assign(person1,person2);
+console.log(typeof text);
+document.getElementById("yourPage").innerHTML = Object.entries(text);*/
+// 2. object.entries(){It returns array of key/value pairs in an object.}
+/*const person1 ={
+  firstName: "Shani",
+  lastName: "Nani",
+  Address: "Khandala",
+  Age: 36
+}
+console.log(Object.entries(person1));
+document.getElementById("yourPage").innerHTML=Object.entries(person1);
+const fruits = {Bananas:300, Orange:400, Apple:700};
+let text="";
+for(let[fruit,value] of Object.entries(fruits))
 {
-  console.log("Hello bro");
+  text += "The value of " + fruit+" " +"is " + value + "<br>";
 }
-greeting(); //This is called the calling the function or running the function.
-//function is value.we can place it on variable.
-const function1 = function congratulating ()
+document.getElementById("yourPage").innerHTML = text; */
+/*const person1 = [
+  ["firstName", "Shani"],
+  ["lastName", "Nani"],
+  ["Address", "Khandala"],
+  ["Age", 36]
+];
+const myObj = Object.fromEntries(person1);
+console.log(myObj);
+document.getElementById("yourPage").innerText = myObj;
+console.log(Object.values(myObj));*/
+/*
+const person = [
+  { name: "Banana", quantity: "200" },
+  { name: "Apple", quantity: "150" },
+  {name: "Orange",quantity: "300"},
+  {name: "Mango",quantity: "500"}
+];
+function callBack({quantity})
 {
-  console.log("congratulation");
+  return quantity > 200 ? "ok" : "low";
 }
-//In the above the function is placing inside the variable function1 as a value.
-console.log(function1);
-console.log(typeof function1);
-function1();//This 'll run the type of the function.
-//since it is a value ,we can save it in object.
-const object = {
-  num:2,
-  fun:function greeting()
+const result = Object.groupBy(person,callBack);
+let text = "These fruits are ok: <br>";
+for(let[x,y] of result.ok.entries())
+{
+  text += y.name + ":" + y.quantity +"<br>";
+}
+ text += "These fruits are low: <br>";
+for(let [x,y] of result.low.entries())
+{
+  text += y.name + ":" + y.quantity +"<br>";
+}
+document.getElementById("yourPage").innerHTML = text;*/ 
+//object.keys(){It returns an array with key of an object}
+/*const person = {
+  name:"Kale",
+  class: 8,
+  section: "B",
+  cast: "Brahmin"
+}
+console.log(Object.keys(person));
+let text="";
+for (let x in person){
+   text += person[x];
+}
+console.log(text);*/
+//javascript object accessor
+/*const person = {
+  name:"Kale",
+  class: 8,
+  section: "B",
+  cast: "Brahmin",
+  set sang(lang){
+    return this.language = lang;
+  },
+  get myCast(){
+   return this.cast; 
+  }
+};
+person.sang="en";
+console.log(person.myCast);
+console.log(person.language)*/
+//object management
+//1.Object.define property
+/*const person = {
+  fistName: "Raja",
+  lastName: "kumar",
+  language: "en"
+} 
+Object.defineProperty(person,"year",{value:"1999",enumerable:true});
+Object.defineProperty(person,"language",{enumerable:false});
+console.log(Object.getOwnPropertyNames(person));
+console.log(Object.keys(person));
+const person1 = {
+  fistName: "Raja",
+  lastName: "kumar"
+} 
+Object.freeze(person1);
+console.log(Object.isFrozen(person1));
+console.log(Object.isExtensible(person1))
+Object.defineProperty(person1,"fullName",{get(){return this.fistName+" "+this.lastName}})
+console.log(person1.fullName);*/
+/*console.log(Date.prototype);
+console.log(Array.prototype);
+console.log(Object.prototype);*/
+//Add properties to the existing object constructor
+/*function Person(name,age,height,weight)
+{
+  this.firstName = name;
+  this.age = age;
+  this.height = height;
+  this.weight = weight;
+}
+const myFather = new Person("Hari",25,"5ft","60kg");
+Person.prototype.nationality = "Nepali";
+Person.prototype.kali=function(){
+  return "Hello kalii";
+}
+console.log(myFather);
+console.log(typeof myFather);
+console.log(myFather.nationality);
+console.log(myFather.kali());
+*/
+/*class Car {
+  constructor(name,year)
   {
-    console.log("hello bro");
+    this.name = name;
+    this.year = year;
+    }
+    age(x) {
+      return x - this.year;
+    }
   }
-}
-object.fun();
-//passing a value into a function
-function display(param)
-{
-  console.log(param);
-}
-display(2);
-function shows(intoFunction)
-{
-  intoFunction();
-}
-shows(function()
-{
-  console.log("Let's pass a function into function");
-});
-setTimeout(()=>{
-  console.log("hello bro");
-},5000);
-console.log("bye bro");*/
-// ["make dinner",
-//   "make breakfast",
-//   "make lunch"
-// ].forEach(function(value)
-// {
-//   console.log(value);
-// });
-/*["Make my life",
-  "Be my wife",
-  "Live your entire life with me"
-].forEach((value,index)=>{
-  if (value=== "Be my wife")
+  const date = new Date();
+  const year = date.getFullYear();
+const myName = new Car("ferrari",2014);
+console.log(myName);
+console.log(typeof myName);
+console.log(myName.age(year));
+class myCar{
+  constructor(brand)
   {
-    return;
+    this.brand = brand;
   }
-  console.log(value);
-  console.log(index);
-});
-//Arrow function
-// const arrowFunction = (value,myValue)=>{
-//   console.log(value);
-//   console.log(myValue);
-// }
-//arrowFunction("1st parameter","Second parameter");
-//Arrow function having one paramter does not have to put inside a bracket.
-const oneParam = value =>{
-  console.log(value);
-}
-oneParam("This arrow funtion only have one parameter");
-//One line arrow function
-
-const oneLine = ()=>{
-  return 2+3;
-}
-console.log(oneLine());
-//Since the function have only one line so we can write it in following ways.
-const twoLine = () =>2+3;
-console.log(twoLine());
-const arrowFunction=()=>{
-  console.log("This is arrow function");
-}
-console.log(arrowFunction());
-*/
-/*const buttonElement = document.querySelector(".js-button");
-const clickFunction = ()=>console.log("click");
-buttonElement.addEventListener('click',()=>console.log("clickFunction"));
-buttonElement.addEventListener('click',clickFunction);
-buttonElement.removeEventListener('click',clickFunction);*/
-const positiveValue=[1, -3, 5].filter((value, index) => {
-  if (value >= 0) {
-    return true;
-  } else {
-    return false;
+  present ()
+  {
+    return `I have ${this.brand} car.`
   }
-});
-console.log(positiveValue);
-const greatNumber = [1,2,3,4,5,6,7,8,9].filter((value,index)=>{
-  return value>4;
-})
-console.log(greatNumber);
-const newArray = [1,2,3].map((value,index)=>{
-  return value;
-});
-console.log(newArray);
-const anotherArray = [1,2,3].map((value,index)=>{
-  return value+10;
-})
-console.log(anotherArray);
+}
+  class Model extends myCar {
+    constructor(brand,model) {
+         super(brand);
+        this.model = model;
+    }
+    show()
+    {
+      return this.present() + ",it is a " + this.model;
+    }
+  }
+let ourCar = new Model("Audi", 4576);
+console.log(ourCar.show());*/
+/*class Car {
+  constructor(name)
+  {
+    this._name = name;
+  }
+  get cname(){
+    return this._name;
+  }
+  set cname(c){
+   return this._name = c;
+  }
+}
+const myCar= new Car("Audi");
+console.log(myCar.cname)
+console.log(myCar.cname="Merceedes");
+class room {
+  static myroom()
+  {
+    return "Our room.";
+  }
+}
+const doom = new room();
+console.log(doom.myroom());
+console.log(room.myroom());*/
