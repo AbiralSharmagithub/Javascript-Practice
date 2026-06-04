@@ -1,257 +1,182 @@
-//learn advance object
-/* const obj = {
-  firstName:"Raja",
-  lastName:"Mouli"
- }
- const sub =  Object.create(obj);
- console.log(sub.firstName);
- console.log(sub.lastName);
- // javascript object from entries
- const fruits = [["apples",300],["mango",400],["strawberry",800],["banana",1000]];
- let fruit = Object.fromEntries(fruits);
- console.log(fruit);
- //object.assign method
- const person1 = {
-  firstName: "Kalika",
-  lastName: "Chalika",
-  Age: 50
- };
- const person2 = {
-  firstName: "Talika",
-  lastName: "Halika",
- };
- Object.assign(person1,person2);
- console.log(person1.firstName,person1.lastName,person1.Age);
-*/
-// this as a object
-/*const person1 = {
-  firstName:"Aashish",
-  lastName:"Karki",
-  fullName:function() {
-    return " Hello " + this.firstName + this.lastName;  
+//Asynchronous
+//1.Asynchronous intro
+/*function display(a)
+{
+  document.getElementById("yourPage").innerHTML+=" "+ a + "";
+}
+setTimeout(function(){
+  display("E")
+},2000);
+setTimeout(function(){
+  display("k")
+},1000);
+display("A");
+display("B");
+display("C");
+function startTime ()
+{
+  document.getElementById("myPage").innerHTML = Date();
+}*/
+//In the above it shows that it display from top to bottom.
+//1 Async Timeout
+/*setInterval(myFunction,1000);
+function myFunction()
+{
+  const d = new Date();
+  document.getElementById("myPage").innerHTML = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds(); 
+}*/
+//2 Callback function
+/*document.getElementById("start").addEventListener("click",display)
+function display ()
+{
+  alert("Let me do my work");
+}*/
+//sequence control
+/*function displayvalue(value){
+  document.getElementById("myPage").innerHTML = value;
+}
+function num(num1,num2,displayer)
+{
+ let result = num1+num2;
+ displayer(result);
+}
+num(4,5,displayvalue);*/
+//callback error handling
+/*function myDisplayer(value) {
+  document.getElementById("myPage").innerHTML = value;
+}
+function getData(callBack) {
+  let ok = false;
+  if (ok) {
+    callBack(null, "Data");
+  } else {
+    callBack("something is wrong", null);
   }
- }
-let text = person1.fullName();
-document.getElementById("yourPage").innerHTML = text;
-const person2 = {
-  firstName:"Aashish",
-  lastName:"Karki",
-  fullName:function() {
-    return this;  
+}
+getData(function (error, data) {
+  if (error) {
+    myDisplayer(error);
+   return;
   }
- }
- document.getElementById("myPage").innerHTML = person2.fullName();
- // function borrowing with bind method
- const person =  {
-  firstName: "Raja",
-  lastName: "Mauli",
-  fullName:function(){
-    console.log("My name is"+this.firstName+" "+this.lastName);
+  myDisplayer(data);
+});*/
+/*function myDisplayer(some) {
+  document.getElementById("myPage").innerHTML += some + "<br>";
+}
+let myPromise = new Promise(function (resolve, reject) {
+  let ok = false;
+  if (ok) {
+    resolve(6);
+  } else {
+    reject("error");
   }
- }
- const member = {
-  firstName: "Raghu",
-  lastName: "Chalise"
- }
- let fullName = person.fullName.bind(member);
- document.getElementById("myPage").innerHTML = fullName();
-*/
-//object iteration
-//javascript object method
-// 1. object assign
-//source object
-/*const person1 ={
-  firstName: "Shani",
-  lastName: "Nani",
-  Address: "Khandala",
-  Age: 36
-}
-//target object
-const person2 = {
-  firstName: "Aakash",
-  lastName: "Shrestha"
-}
-let text = Object.assign(person1,person2);
-console.log(typeof text);
-document.getElementById("yourPage").innerHTML = Object.entries(text);*/
-// 2. object.entries(){It returns array of key/value pairs in an object.}
-/*const person1 ={
-  firstName: "Shani",
-  lastName: "Nani",
-  Address: "Khandala",
-  Age: 36
-}
-console.log(Object.entries(person1));
-document.getElementById("yourPage").innerHTML=Object.entries(person1);
-const fruits = {Bananas:300, Orange:400, Apple:700};
-let text="";
-for(let[fruit,value] of Object.entries(fruits))
-{
-  text += "The value of " + fruit+" " +"is " + value + "<br>";
-}
-document.getElementById("yourPage").innerHTML = text; */
-/*const person1 = [
-  ["firstName", "Shani"],
-  ["lastName", "Nani"],
-  ["Address", "Khandala"],
-  ["Age", 36]
-];
-const myObj = Object.fromEntries(person1);
-console.log(myObj);
-document.getElementById("yourPage").innerText = myObj;
-console.log(Object.values(myObj));*/
-/*
-const person = [
-  { name: "Banana", quantity: "200" },
-  { name: "Apple", quantity: "150" },
-  {name: "Orange",quantity: "300"},
-  {name: "Mango",quantity: "500"}
-];
-function callBack({quantity})
-{
-  return quantity > 200 ? "ok" : "low";
-}
-const result = Object.groupBy(person,callBack);
-let text = "These fruits are ok: <br>";
-for(let[x,y] of result.ok.entries())
-{
-  text += y.name + ":" + y.quantity +"<br>";
-}
- text += "These fruits are low: <br>";
-for(let [x,y] of result.low.entries())
-{
-  text += y.name + ":" + y.quantity +"<br>";
-}
-document.getElementById("yourPage").innerHTML = text;*/ 
-//object.keys(){It returns an array with key of an object}
-/*const person = {
-  name:"Kale",
-  class: 8,
-  section: "B",
-  cast: "Brahmin"
-}
-console.log(Object.keys(person));
-let text="";
-for (let x in person){
-   text += person[x];
-}
-console.log(text);*/
-//javascript object accessor
-/*const person = {
-  name:"Kale",
-  class: 8,
-  section: "B",
-  cast: "Brahmin",
-  set sang(lang){
-    return this.language = lang;
+});
+myPromise.then(
+  function (value) {
+    myDisplayer(value);
+    return value*4;
   },
-  get myCast(){
-   return this.cast; 
-  }
-};
-person.sang="en";
-console.log(person.myCast);
-console.log(person.language)*/
-//object management
-//1.Object.define property
-/*const person = {
-  fistName: "Raja",
-  lastName: "kumar",
-  language: "en"
-} 
-Object.defineProperty(person,"year",{value:"1999",enumerable:true});
-Object.defineProperty(person,"language",{enumerable:false});
-console.log(Object.getOwnPropertyNames(person));
-console.log(Object.keys(person));
-const person1 = {
-  fistName: "Raja",
-  lastName: "kumar"
-} 
-Object.freeze(person1);
-console.log(Object.isFrozen(person1));
-console.log(Object.isExtensible(person1))
-Object.defineProperty(person1,"fullName",{get(){return this.fistName+" "+this.lastName}})
-console.log(person1.fullName);*/
-/*console.log(Date.prototype);
-console.log(Array.prototype);
-console.log(Object.prototype);*/
-//Add properties to the existing object constructor
-/*function Person(name,age,height,weight)
-{
-  this.firstName = name;
-  this.age = age;
-  this.height = height;
-  this.weight = weight;
-}
-const myFather = new Person("Hari",25,"5ft","60kg");
-Person.prototype.nationality = "Nepali";
-Person.prototype.kali=function(){
-  return "Hello kalii";
-}
-console.log(myFather);
-console.log(typeof myFather);
-console.log(myFather.nationality);
-console.log(myFather.kali());
+).catch(function (value) {
+    myDisplayer(value);
+  })
 */
-/*class Car {
-  constructor(name,year)
-  {
-    this.name = name;
-    this.year = year;
-    }
-    age(x) {
-      return x - this.year;
-    }
+/*function myDisplayer(some) {
+  document.getElementById("myPage").innerHTML = some;
+}
+function step1() {
+  return Promise.resolve("A");
+}
+function step2(value) {
+  return Promise.resolve(value + "B");
+}
+function step3(value) {
+  return Promise.resolve(value + "C");
+}
+step1()
+  .then(function (value) {
+    return step2(value);
+  })
+  .then(function () {
+    return step3(value);
+  })
+  .then(function(value){myDisplayer(value)}).catch(function(error){console.log(error)});
+  ;*/
+//promises for timeout
+let ourPromise = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    (resolve("Hello Sharma,How are you?"), 3000);
+  });
+});
+ourPromise.then(function (allo) {
+  document.getElementById("yourPage").innerHTML = allo;
+});
+//async and await
+function ourDisplayer(some) {
+  document.getElementById("myPage").innerHTML = some;
+}
+function step1() {
+  return Promise.resolve("A");
+}
+function step2(value) {
+  return Promise.resolve(value + "B");
+}
+function step3(value) {
+  return Promise.resolve(value + "C");
+}
+async function runIt() {
+  let v1 =  await step1();
+  let v2 =  await step2(v1);
+  let v3 =  await step3(v2);
+  ourDisplayer(v3);
+}
+runIt();
+function fail() {
+  return Promise.reject("failed");
+}
+async function run() {
+  try { 
+    let value = fail();
+    console.log(value);
   }
-  const date = new Date();
-  const year = date.getFullYear();
-const myName = new Car("ferrari",2014);
-console.log(myName);
-console.log(typeof myName);
-console.log(myName.age(year));
-class myCar{
-  constructor(brand)
+  catch(error)
   {
-    this.brand = brand;
-  }
-  present ()
-  {
-    return `I have ${this.brand} car.`
+    console.log(error);
   }
 }
-  class Model extends myCar {
-    constructor(brand,model) {
-         super(brand);
-        this.model = model;
-    }
-    show()
-    {
-      return this.present() + ",it is a " + this.model;
-    }
-  }
-let ourCar = new Model("Audi", 4576);
-console.log(ourCar.show());*/
-/*class Car {
-  constructor(name)
+run();
+// fetch() returns a promise
+fetch("data.json").
+then(function(response){
+  return response.json();
+}).then(function(value){
+console.log(value);
+})
+//fetch with async await
+async function fetc() {
+  let response = await fetch(data.json);
+  let data = await response.json();
+  console.log(data);
+}  
+fetc();
+async function myData()
+{
+  let response = await fetch(missing.json);
+  if(!response.ok)
   {
-    this._name = name;
+    console.log("Https Errors",response.status);
   }
-  get cname(){
-    return this._name;
+  let myData = await response.json;
+  console.log(myData);
+}
+myData();
+//try and catch 
+async function loadData () {
+  try {
+    let response = await fetch("data.json");
+    let data = await response.json();
+    console.log(data);
   }
-  set cname(c){
-   return this._name = c;
+  catch(error){
+    console.log("Network error");
   }
 }
-const myCar= new Car("Audi");
-console.log(myCar.cname)
-console.log(myCar.cname="Merceedes");
-class room {
-  static myroom()
-  {
-    return "Our room.";
-  }
-}
-const doom = new room();
-console.log(doom.myroom());
-console.log(room.myroom());*/
