@@ -102,7 +102,7 @@ step1()
   .then(function(value){myDisplayer(value)}).catch(function(error){console.log(error)});
   ;*/
 //promises for timeout
-let ourPromise = new Promise(function (resolve, reject) {
+/*let ourPromise = new Promise(function (resolve, reject) {
   setTimeout(function () {
     (resolve("Hello Sharma,How are you?"), 3000);
   });
@@ -179,4 +179,9 @@ async function loadData () {
   catch(error){
     console.log("Network error");
   }
-}
+}*/
+async function dyna() {
+  const module = await import("./math.js");
+  const ad = module.default(3,4);
+document.getElementById("myPage").innerHTML = ad;  
+} dyna();
