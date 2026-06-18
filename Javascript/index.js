@@ -1,187 +1,80 @@
-//Asynchronous
-//1.Asynchronous intro
-/*function display(a)
-{
-  document.getElementById("yourPage").innerHTML+=" "+ a + "";
+//javascript meta programming
+//1. Inspect object properties with object.key() method.
+/*const myObj = {
+  firstName:"Raja",
+  lastName:"kaji",
+  Age:27,
+  Occupation:"Doctor"
 }
-setTimeout(function(){
-  display("E")
-},2000);
-setTimeout(function(){
-  display("k")
-},1000);
-display("A");
-display("B");
-display("C");
-function startTime ()
-{
-  document.getElementById("myPage").innerHTML = Date();
-}*/
-//In the above it shows that it display from top to bottom.
-//1 Async Timeout
-/*setInterval(myFunction,1000);
-function myFunction()
-{
-  const d = new Date();
-  document.getElementById("myPage").innerHTML = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds(); 
-}*/
-//2 Callback function
-/*document.getElementById("start").addEventListener("click",display)
-function display ()
-{
-  alert("Let me do my work");
-}*/
-//sequence control
-/*function displayvalue(value){
-  document.getElementById("myPage").innerHTML = value;
-}
-function num(num1,num2,displayer)
-{
- let result = num1+num2;
- displayer(result);
-}
-num(4,5,displayvalue);*/
-//callback error handling
-/*function myDisplayer(value) {
-  document.getElementById("myPage").innerHTML = value;
-}
-function getData(callBack) {
-  let ok = false;
-  if (ok) {
-    callBack(null, "Data");
-  } else {
-    callBack("something is wrong", null);
-  }
-}
-getData(function (error, data) {
-  if (error) {
-    myDisplayer(error);
-   return;
-  }
-  myDisplayer(data);
-});*/
-/*function myDisplayer(some) {
-  document.getElementById("myPage").innerHTML += some + "<br>";
-}
-let myPromise = new Promise(function (resolve, reject) {
-  let ok = false;
-  if (ok) {
-    resolve(6);
-  } else {
-    reject("error");
-  }
-});
-myPromise.then(
-  function (value) {
-    myDisplayer(value);
-    return value*4;
+const myArr = Object.keys(myObj);
+//change the property
+Object.defineProperty(myObj,"firstName",{value:"Rana",writable:true,enumerable:true,configurable:true});
+document.getElementById("myPage").innerHTML=myObj.firstName;
+const myfunc = new Function("a","b"," return a + b ");
+let result = myfunc(5,6);
+console.log(result);*/
+//Proxy object logging
+const Person = {
+  firstName: "Raja",
+  lastName: "Karki",
+  Age: 24,
+  Occupation: "Male ego",
+};
+const myProxy = new Proxy(Person, {
+  get(target, props) {
+    log("property:" + props);
+    return target[props];
   },
-).catch(function (value) {
-    myDisplayer(value);
-  })
-*/
-/*function myDisplayer(some) {
-  document.getElementById("myPage").innerHTML = some;
-}
-function step1() {
-  return Promise.resolve("A");
-}
-function step2(value) {
-  return Promise.resolve(value + "B");
-}
-function step3(value) {
-  return Promise.resolve(value + "C");
-}
-step1()
-  .then(function (value) {
-    return step2(value);
-  })
-  .then(function () {
-    return step3(value);
-  })
-  .then(function(value){myDisplayer(value)}).catch(function(error){console.log(error)});
-  ;*/
-//promises for timeout
-/*let ourPromise = new Promise(function (resolve, reject) {
-  setTimeout(function () {
-    (resolve("Hello Sharma,How are you?"), 3000);
-  });
+  set(target, props, value) {
+    log("property:" + value);
+    return target[props];
+  },
 });
-ourPromise.then(function (allo) {
-  document.getElementById("yourPage").innerHTML = allo;
-});
-//async and await
-function ourDisplayer(some) {
-  document.getElementById("myPage").innerHTML = some;
+function log(message) {
+  console.log(message);
+  document.getElementById("myPage").innerHTML += message + "<br>";
 }
-function step1() {
-  return Promise.resolve("A");
-}
-function step2(value) {
-  return Promise.resolve(value + "B");
-}
-function step3(value) {
-  return Promise.resolve(value + "C");
-}
-async function runIt() {
-  let v1 =  await step1();
-  let v2 =  await step2(v1);
-  let v3 =  await step3(v2);
-  ourDisplayer(v3);
-}
-runIt();
-function fail() {
-  return Promise.reject("failed");
-}
-async function run() {
-  try { 
-    let value = fail();
-    console.log(value);
-  }
-  catch(error)
-  {
-    console.log(error);
-  }
-}
-run();
-// fetch() returns a promise
-fetch("data.json").
-then(function(response){
-  return response.json();
-}).then(function(value){
-console.log(value);
-})
-//fetch with async await
-async function fetc() {
-  let response = await fetch(data.json);
-  let data = await response.json();
-  console.log(data);
-}  
-fetc();
-async function myData()
+myProxy.firstName = "Jhon";
+myProxy.Age = 18;
+let text1 = myProxy.firstName;
+let text2 = myProxy.lastName;
+const lesson = {work:"chalu",hardwork:"Kalu"};
+let answer = Reflect.has(lesson,"work");
+console.log(answer);
+let ans = "work" in lesson;
+console.log(ans);
+Reflect.deleteProperty(lesson,"hardwork");
+console.log(lesson);
+let getUser = Reflect.get(lesson,"work");
+console.log(getUser);
+Reflect.set(lesson,"hardwork","kalu");
+console.log(lesson);
+function greet (message)
 {
-  let response = await fetch(missing.json);
-  if(!response.ok)
-  {
-    console.log("Https Errors",response.status);
-  }
-  let myData = await response.json;
-  console.log(myData);
+  return message+","+this.name;
 }
-myData();
-//try and catch 
-async function loadData () {
-  try {
-    let response = await fetch("data.json");
-    let data = await response.json();
-    console.log(data);
-  }
-  catch(error){
-    console.log("Network error");
-  }
-}*/
-async function dyna() {
-  const module = await import("./math.js");
-  const ad = module.default(3,4);
-document.getElementById("myPage").innerHTML = ad;  
-} dyna();
+const person = {name:"kaji"};
+const loson = {name:"sarla"};
+let msg = Reflect.apply(greet,loson,["Hello"]);
+console.log(msg);
+const colors = Reflect.construct(Array,["kalu","mamu","sanu","chanu"]);
+console.log(colors);
+const user = {};
+Reflect.defineProperty(user,"id",{
+  value:123,
+  writable:false
+});
+console.log(user);
+const myArr = new Uint16Array([0,6,2,3,4]);
+const urArr = Uint8Array.of(1,6,3,4,5) ;
+const ourArr = Uint8Array.from([1,2,3,4,5]) ;
+console.log(myArr.find((x)=>x>2));
+console.log(urArr.some((x)=>x>7));
+console.log(ourArr);
+console.log(ourArr.byteLength);
+console.log(myArr.at(1));
+console.log(myArr.constructor.name);
+console.log(myArr.BYTES_PER_ELEMENT);
+console.log(myArr.fill(200));
+let helloArr = new Uint8Array(8);
+console.log(helloArr.fill(200,0,3));
