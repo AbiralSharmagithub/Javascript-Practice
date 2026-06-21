@@ -1,55 +1,38 @@
-const raj = document.getElementsByTagName("p");
-console.log(raj);
-//windows
-console.log(window.innerWidth);
-console.log(window.innerHeight);
-console.log(screen.availWidth);
-console.log(screen.colorDepth);
-console.log(window.location.href);
-console.log(screen.pixelDepth);
-console.log(window.location.hostname);
-console.log(window.location.pathname);
-console.log(window.location.protocol);
-console.log(window.location.port);
-console.log(history.back());
-console.log(navigator.cookieEnabled);
-console.log(navigator.language);
-console.log(navigator.onLine);
-console.log(navigator.appName);
-console.log(navigator.appCodeName);
-console.log(navigator.product);
-console.log(navigator.appVersion);
-console.log(navigator.userAgent);
-console.log(navigator.platform);
-console.log(navigator.javaEnabled());
+//web API
+function geoLocation()
+{
+  try {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  catch(err) {
+  document.getElementById("yourPage").innerHTML=err;
+  }
+}
+function showPosition(position)
+{
+  document.getElementById("yourPage").innerHTML="latitude:" + position.coords.latitude + "<br>longitude" + position.coords.latitude;
+}
+let file = "file_info.txt";
+fetch(file)
+.then(x=>x.text())
+.then(y=>document.getElementById("myPage").innerHTML=y);
 function callme()
 {
-  var text;
-  if(confirm("text button"))
+  console.log("clicked");
+  window.history.back();
+}
+console.log(history.length);
+localStorage.setItem("name","john");
+document.getElementById("ourPage").innerHTML = localStorage.getItem("name");
+function ourFunction()
+{
+  let myid = document.getElementById("id1");
+  if(myid.validity.rangeUnderflow)
   {
-    text = "You pressed ok";
+    document.getElementById("input-page").innerHTML="value too low";
   }
-  else 
-    {
-    text = "You pressed cancel";
+  else
+  {
+    document.getElementById("input-page").innerHTML="value too large";
   }
- document.getElementById("myPage").innerHTML = text;
 }
-/*setInterval(function raj(){
-  console.log("Raj");
-},1000);
-function chor()
-{
-  clearInterval();
-}*/
-username = "Rakesh";
-let x = document.cookie;
-console.log(x);
-//javascript cookie
-function setCookie (cname,cvalue,exdays)
-{
-const d = new Date();
-
-}
-
-
